@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Flix</title>
+    <title>Movies</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,19 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <h1>Movies</h1>
+    </header>
+
+    <div class="content">
+      <%= yield %>
+    </div>
+
+    <footer>
+      <p>
+        Copyright &copy; 2005-<%= Time.now.year %>
+        <%= link_to 'The Pragmatic Studio','https://pragmaticstudio.com' %>
+      </p>
+    </footer>
   </body>
 </html>
