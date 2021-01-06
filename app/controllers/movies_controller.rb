@@ -13,9 +13,11 @@ class MoviesController < ApplicationController
 
 	def update
 		@movie = Movie.find(params[:id])
-		# https://api.rubyonrails.org/classes/ActionController/Parameters.html#method-i-permit
-		@movie.update(movie_params)
-		redirect_to @movie
+		if @movie.update(movie_params)
+			redirect_to @movie
+		else
+			render :edit
+		end
 	end
 
 	def new
@@ -23,9 +25,12 @@ class MoviesController < ApplicationController
 	end
 
 	def create
-		new_movie = Movie.new(movie_params)
-		new_movie.save
-		redirect_to new_movie
+		@movie = Movie.new(movie_params)
+		if @movie.save
+			redirect_to @movie
+		else
+			render :new
+		end
 	end
 
 	def destroy
@@ -37,6 +42,7 @@ class MoviesController < ApplicationController
 	private
 
 	def movie_params
+		# https://api.rubyonrails.org/classes/ActionController/Parameters.html#method-i-permit
 		params.require(:movie).permit(:title, :description, :rating, :released_on, :total_gross, :director, :duration, :image_file_name)
 	end
 end
