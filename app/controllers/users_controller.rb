@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 	before_action :require_signin, except: [:new, :create]
-	before_action :require_correct_user, only: [:edit, :update, :destroy]
+	before_action :require_correct_user, only: [:edit, :update]
+	before_action :require_admin, only: [:destroy]
 
 	def index
 		@users = User.all
@@ -36,8 +37,9 @@ class UsersController < ApplicationController
 	end
 
 	def destroy
+		@user = User.find(params[:id])
+		session[:user_id] = nil if current_user?(@user)
 		@user.destroy
-		session[:user_id] = nil
 		redirect_to root_path, alert: "User successfully deleted!"
 	end
 
