@@ -2,8 +2,8 @@ class Review < ApplicationRecord
   STARS = 1..5
 
   belongs_to :movie
+  belongs_to :user
 
-  validates :name, presence: true
   validates :comment, length: { minimum: 4 }
   validates :stars, inclusion: STARS
 
