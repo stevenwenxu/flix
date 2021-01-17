@@ -163,6 +163,12 @@ section.movie-details {
 		input[type="submit"] {
 			margin-top: 1rem;
 		}
+
+		img {
+			margin-top: 0.5rem;
+			width: 150px;
+			box-shadow: $box-shadow;
+		}
 	}
 
 	.details {
@@ -226,12 +232,6 @@ section.movie-details {
   p {
 		margin-top: 1rem;
     font-size: 1.15em;
-	}
-
-	img {
-		margin-top: 0.5rem;
-		width: 150px;
-		box-shadow: $box-shadow;
 	}
 
 	a.review {

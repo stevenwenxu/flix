@@ -1,5 +1,6 @@
 class FavoritesController < ApplicationController
     before_action :require_signin
+
     def create
         movie = Movie.find(params[:movie_id])
         movie.fans << current_user
@@ -8,8 +9,8 @@ class FavoritesController < ApplicationController
 
     def destroy
         movie = Movie.find(params[:movie_id])
-        # fav = movie.favorites.find(params[:id])
-        fav = Favorite.find(params[:id])
+        # NOT Favourite.find(params[:id]) because it would allow any signed in user to make request to delete other user's favorites
+        fav = current_user.favorites.find(params[:id])
         fav.destroy
         redirect_to movie
     end
