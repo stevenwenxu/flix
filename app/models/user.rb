@@ -11,6 +11,9 @@ class User < ApplicationRecord
 	validates :password, length: { minimum: 3, allow_blank: true }
 	validates :username, presence: true, format: { with: /\A[A-Z0-9]+\z/i} , uniqueness: true
 
+	scope :by_name, -> { order(:name) }
+	scope :non_admins, -> { by_name.where(admin: false) }
+
 	def gravatar_id
 		Digest::MD5::hexdigest(email.downcase)
 	end

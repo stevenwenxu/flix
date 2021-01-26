@@ -1,5 +1,5 @@
 class Movie < ApplicationRecord
-	has_many :reviews, dependent: :destroy
+	has_many :reviews, -> { order(created_at: :desc) }, dependent: :destroy
 	has_many :favorites, dependent: :destroy
 	has_many :fans, through: :favorites, source: :user
 	has_many :critics, through: :reviews, source: :user
@@ -18,9 +18,13 @@ class Movie < ApplicationRecord
 	validates :rating, inclusion: { in: RATINGS }
 
 	# all the movies that have been released, ordered with the most recently-released movie first
-	def self.released
-		where('released_on < ?', Time.now).order(released_on: :desc)
-	end
+	# same as `def self.released`
+	scope :released, -> { where('released_on < ?', Time.now).order(released_on: :desc) }
+	scope :upcoming, -> { where('released_on > ?', Time.now).order(released_on: :asc) }
+	scope :recent, ->(num = 5) { released.limit(num) }
+
+	scope :hits, -> { released.where("total_gross >= 300000000").order(total_gross: :desc) }
+	scope :flops, -> { released.where("total_gross < 225000000").order(total_gross: :asc) }
 
 	def flop?
 		total_gross.blank? || total_gross < 255_000_000
