@@ -10,7 +10,7 @@
 		<% if current_user?(@user) %>
 			<%= link_to "Edit Account", edit_user_path(@user), class: "button edit" %>
 		<% end %>
-		<% if current_user_admin? %>	
+		<% if current_user_admin? %>
 			<%= link_to "Delete Account", @user, class: "button delete", method: :delete, data: { confirm: 'Are you sure?' } %>
 		<% end %>
 	</div>
@@ -37,7 +37,7 @@
 	  <h3>Favorite Movies</h3>
 	  <div class="favorite-movies">
 	    <% @favorite_movies.each do |movie| %>
-	      <%= link_to image_tag(movie.image_file_name), movie %>
+	      <%= link_to main_image(movie), movie %>
 	    <% end %>
 	  </div>
 	<% end %>

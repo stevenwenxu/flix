@@ -59,7 +59,7 @@ class MoviesController < ApplicationController
 
 	def movie_params
 		# https://api.rubyonrails.org/classes/ActionController/Parameters.html#method-i-permit
-		params.require(:movie).permit(:title, :description, :rating, :released_on, :total_gross, :director, :duration, :image_file_name, genre_ids: [])
+		params.require(:movie).permit(:title, :description, :rating, :released_on, :total_gross, :director, :duration, :main_image, genre_ids: [])
 	end
 
 	def set_movie
