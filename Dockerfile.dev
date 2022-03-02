@@ -20,7 +20,7 @@ COPY . .
 
 RUN yarn install
 
-RUN rails db:migrate
+RUN rails db:migrate && rails db:seed
 
 EXPOSE 3000
 
