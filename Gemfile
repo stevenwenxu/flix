@@ -15,8 +15,6 @@ end
 gem 'puma'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5'
-# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -35,6 +33,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap', '~> 4.5.3'
 
 gem "aws-sdk-s3", require: false
+
+gem 'jsbundling-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
