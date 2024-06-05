@@ -47,5 +47,5 @@ kill_timeout = "5s"
     restart_limit = 0
 
 [[statics]]
-  guest_path = "/app/public"
+  guest_path = "/rails/public"
   url_prefix = "/"
