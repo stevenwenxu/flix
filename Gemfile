@@ -48,4 +48,5 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'seed_dump'
+  gem 'dockerfile-rails', '>= 1.6'
 end
