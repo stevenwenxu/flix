@@ -30,7 +30,7 @@ gem 'image_processing', '~> 1.12'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
-gem 'bootstrap', '~> 4.5.3'
+gem 'bootstrap', '~> 4.6.2'
 
 gem "aws-sdk-s3", require: false
 
