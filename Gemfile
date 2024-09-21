@@ -13,8 +13,6 @@ group :production do
 end
 # Use Puma as the app server
 gem 'puma'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 5'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -31,6 +29,7 @@ gem 'image_processing', '~> 1.12'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'bootstrap', '~> 4.6.2'
+gem 'dartsass-sprockets'
 
 gem "aws-sdk-s3", require: false
 
