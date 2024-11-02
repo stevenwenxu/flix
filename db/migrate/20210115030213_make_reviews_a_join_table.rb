@@ -4,7 +4,7 @@ class MakeReviewsAJoinTable < ActiveRecord::Migration[6.0]
     # add_column :reviews, :user_id, :integer
     change_table :reviews do |t|
       t.remove :name
-      t.references :user
+      t.references :user, type: :bigint
     end
     Review.delete_all
   end

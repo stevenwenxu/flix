@@ -4,7 +4,7 @@ class CreateReviews < ActiveRecord::Migration[6.0]
       t.string :name
       t.integer :stars
       t.text :comment
-      t.references :movie, null: false, foreign_key: true
+      t.references :movie, null: false, foreign_key: true, type: :bigint
 
       t.timestamps
     end

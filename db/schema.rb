@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_11_165908) do
+ActiveRecord::Schema[7.1].define(version: 2022_06_11_165908) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.integer "record_id", null: false
-    t.integer "blob_id", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
     t.datetime "created_at", precision: nil, null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -26,7 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_11_165908) do
     t.string "filename", null: false
     t.string "content_type"
     t.text "metadata"
-    t.integer "byte_size", null: false
+    t.bigint "byte_size", null: false
     t.string "checksum"
     t.datetime "created_at", precision: nil, null: false
     t.string "service_name", null: false
@@ -40,8 +40,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_11_165908) do
   end
 
   create_table "characterizations", force: :cascade do |t|
-    t.integer "movie_id", null: false
-    t.integer "genre_id", null: false
+    t.bigint "movie_id", null: false
+    t.bigint "genre_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["genre_id"], name: "index_characterizations_on_genre_id"
@@ -49,8 +49,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_11_165908) do
   end
 
   create_table "favorites", force: :cascade do |t|
-    t.integer "movie_id", null: false
-    t.integer "user_id", null: false
+    t.bigint "movie_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["movie_id"], name: "index_favorites_on_movie_id"
@@ -79,10 +79,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_11_165908) do
   create_table "reviews", force: :cascade do |t|
     t.integer "stars"
     t.text "comment"
-    t.integer "movie_id", null: false
+    t.bigint "movie_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.index ["movie_id"], name: "index_reviews_on_movie_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
