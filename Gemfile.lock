@@ -166,6 +166,7 @@ GEM
     minitest (5.25.1)
     msgpack (1.7.1)
     mutex_m (0.2.0)
+    mysql2 (0.5.6)
     net-imap (0.4.10)
       date
       net-protocol
@@ -183,7 +184,6 @@ GEM
       racc (~> 1.4)
     nokogiri (1.16.7-x86_64-linux)
       racc (~> 1.4)
-    pg (1.5.3)
     popper_js (1.16.1)
     psych (5.1.2)
       stringio
@@ -297,7 +297,7 @@ DEPENDENCIES
   image_processing (~> 1.12)
   jbuilder (~> 2.7)
   jsbundling-rails
-  pg
+  mysql2
   puma
   rails (~> 7.0)
   seed_dump
